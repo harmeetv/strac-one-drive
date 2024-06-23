@@ -1,7 +1,11 @@
 const express = require('express');
 const { handleWebhook } = require('../controllers/webhookController');
-const router = express.Router();
 
-router.post('/one-drive', handleWebhook);
+module.exports = (io) => {
+  const router = express.Router();
 
-module.exports = router;
+  // Pass the io instance to the controller
+  router.post('/one-drive', (req, res) => handleWebhook(req, res, io));
+
+  return router;
+};
