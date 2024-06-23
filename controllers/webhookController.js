@@ -1,5 +1,6 @@
 exports.handleWebhook = (req, res, io) => {
     const event = req.body;
+    console.log("event", event);
     // Logic to handle the webhook event
     const { value } = req.body;
     if (value && value[0]) {
