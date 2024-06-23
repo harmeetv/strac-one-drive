@@ -1,5 +1,4 @@
 exports.handleWebhook = (req, res, io) => {
-    console.log("res", res);
     const validationToken = req.query.validationToken;
     if (validationToken) {
         // Validate the webhook subscription
@@ -7,6 +6,7 @@ exports.handleWebhook = (req, res, io) => {
     } else {
         console.log("req.body", req.body);
         const event = req.body.value[0];
+        console.log("req.body", event.resourceData);
         if (event && event.resourceData && event.resourceData.id) {
             // Handle the event (e.g., user added/removed)
             console.log('Received event:', event);
