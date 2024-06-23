@@ -4,7 +4,7 @@ exports.handleWebhook = (req, res, io) => {
         // Validate the webhook subscription
         res.status(200).send(validationToken);
     } else {
-        console.log("req", req);
+        console.log("req", req.headers, req.body);
         const event = req.body.value[0];
         console.log("req.body", event.resourceData, event.resourceData.id);
         if (event && event.resourceData && event.resourceData.id) {
