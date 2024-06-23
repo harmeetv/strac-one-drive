@@ -32,6 +32,10 @@ io.on('connection', handleSocketConnection);
 // Use routes
 app.use('/subscriptions', subscriptionRoutes);
 app.use('/webhooks', webhookRoutes(io));
+// add a test route
+app.get('/test', (req, res) => {
+  res.send('Hello World!');
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
