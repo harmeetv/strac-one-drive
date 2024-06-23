@@ -6,7 +6,7 @@ exports.handleWebhook = (req, res, io) => {
     } else {
         console.log("req.body", req.body);
         const event = req.body.value[0];
-        console.log("req.body", event.resourceData);
+        console.log("req.body", event.resourceData, event.resourceData.id);
         if (event && event.resourceData && event.resourceData.id) {
             // Handle the event (e.g., user added/removed)
             console.log('Received event:', event);
