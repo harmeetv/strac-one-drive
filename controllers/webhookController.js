@@ -1,4 +1,5 @@
 exports.handleWebhook = (req, res, io) => {
+    console.log("res", res);
     const validationToken = req.query.validationToken;
     if (validationToken) {
         // Validate the webhook subscription
